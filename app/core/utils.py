@@ -17,6 +17,10 @@ def get_env_path():
     return os.path.join(get_project_root(), '.env')
 
 
+def get_config_path():
+    return os.path.join(get_project_root(), "config.toml")
+
+
 def load_env():
     load_dotenv(get_env_path())
 

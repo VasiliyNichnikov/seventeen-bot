@@ -1,0 +1,21 @@
+[commands.start]
+name = "start"
+message = "Привет! Данное сообщение является приветственным!"
+
+[buttons.button1]
+name = "Кнопка №1"
+message = "Сообщение для кнопки №1"
+use_keyboard = true
+
+[buttons.button2]
+name = "Кнопка №2"
+message = "Сообщение для кнопки №2"
+use_keyboard = false
+image = "image_test.jpg"
+
+[buttons.button3]
+name = "Кнопка №3"
+message = "Сообщение для кнопки №3"
+
+[messages]
+command_error = "Сообщение об ошибке"

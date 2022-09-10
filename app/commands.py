@@ -4,25 +4,28 @@ from app import dp
 
 from app.keyboards.services import services_keyboard
 from app.keyboards.empty import empty_keyboard
+from app.core.config import get_config
 
 
-@dp.message_handler(commands=['start'])
+config = get_config()
+
+
+@dp.message_handler(commands=[config.commands.start.name])
 async def send_welcome(message: types.Message):
-    await message.answer(text="Привет это сообщение приветсвия!", reply_markup=services_keyboard)
+    global config
+    await message.answer(text=config.commands.start.message, reply_markup=services_keyboard)
 
 
 @dp.message_handler()
 async def echo(message: types.Message):
-    match message.text:
-        case "Пример кнопки №1":
-            await message.answer(text="Информация о кнопке №1", reply_markup=empty_keyboard)
+    global config
 
-        case "Пример кнопки №2":
-            await message.answer(text="Информация о кнопке №2", reply_markup=empty_keyboard)
+    text = message.text
 
-        case "Пример кнопки №3":
-            await message.answer("Информация о кнопке №3", reply_markup=empty_keyboard)
+    for button in config.buttons.ready_buttons:
+        if button.name == text:
+            markup = services_keyboard if button.use_keyboard else empty_keyboard
+            await message.answer(text=button.message, reply_markup=markup)
+            return
 
-        case _:
-            await message.answer("Сообщение об ошибке", reply_markup=services_keyboard)
-
+    await message.answer(config.messages.error, reply_markup=services_keyboard)

@@ -14,11 +14,15 @@ def get_project_root():
 
 
 def get_env_path():
-    return os.path.join(get_project_root(), '.env')
+    return os.path.join(get_project_root(), ".env")
 
 
 def get_config_path():
     return os.path.join(get_project_root(), "config.toml")
+
+
+def get_image_path(name: str):
+    return os.path.join(get_project_root(), f"static/images/{name}")
 
 
 def load_env():

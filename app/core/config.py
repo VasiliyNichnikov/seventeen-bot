@@ -30,6 +30,7 @@ class Button:
         self._name = button["name"]
         self._message = button["message"]
         self._use_keyboard = False if "use_keyboard" not in button.keys() else button["use_keyboard"]
+        self._image = None if "image" not in button.keys() else button["image"]
 
     @property
     def name(self) -> str:
@@ -43,6 +44,9 @@ class Button:
     def use_keyboard(self) -> bool:
         return self._use_keyboard
 
+    @property
+    def image(self):
+        return self._image
 
 class Buttons:
     def __init__(self, buttons: dict) -> None:

@@ -1,21 +1,40 @@
 [commands.start]
 name = "start"
-message = "Привет! Данное сообщение является приветственным!"
+message = "Привет! Чтобы продолжить выберите категорию необходимой услуги ниже!"
 
-[buttons.button1]
-name = "Кнопка №1"
-message = "Сообщение для кнопки №1"
+[buttons.beats]
+name = "Биты"
+message = """
+Для приобретения бита пришлите название и вид услуги нашей команде
+
+ 1. https://t.me/e_n_d_official
+ 2. https://t.me/DED_V_Groby
+ 3. https://t.me/chernobaevsky
+ """
 use_keyboard = true
+image = "beats.jpg"
 
 [buttons.button2]
-name = "Кнопка №2"
-message = "Сообщение для кнопки №2"
-use_keyboard = false
-image = "image_test.jpg"
+name = "Дизайн"
+message = """
+Для приобретения услуг по дизайну пришлите название товара нашей команде
+
+ 1. https://t.me/onesevenx
+ 2. https://t.me/chernobaevsky
+"""
+use_keyboard = true
+image = "covers.jpg"
 
 [buttons.button3]
-name = "Кнопка №3"
-message = "Сообщение для кнопки №3"
+name = "Видео"
+message = """
+Для покупки видео услуг пришлите название товара нашей команде
+
+ 1. https://t.me/onesevenx
+ 2. https://t.me/chernobaevsky
+"""
+image = "motion.jpg"
+use_keyboard = true
 
 [messages]
-command_error = "Сообщение об ошибке"
+command_error = "Извините, данной команды нет, все команды доступны по кнопкам ниже"
